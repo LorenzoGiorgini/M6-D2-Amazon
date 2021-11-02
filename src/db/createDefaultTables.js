@@ -7,13 +7,13 @@ const table = path.join(process.cwd(), "src/db/tables.sql")
 
 const createDefaultTables = async () => {
     try {
-
         const buffer = await fs.readFile(table)
 
         const tableSQL = buffer.toString()
 
+        console.log(tableSQL)
+
         await pool.query(tableSQL)
-        
     } catch (error) {
         console.log(error);
     }

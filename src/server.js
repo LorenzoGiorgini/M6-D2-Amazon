@@ -19,5 +19,6 @@ console.table(listEndpoints(productRouter))
 
 
 server.listen((port), async () => {
+    console.log("Server Ruunning" ,port)
     await createDefaultTables()
 })
