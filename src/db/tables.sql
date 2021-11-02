@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS
+	users(
+		id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+		name VARCHAR(50) NOT NULL,
+        description VARCHAR(100) NOT NULL,
+        brand VARCHAR() NOT NULL,
+		image_url VARCHAR(),
+        price INTEGER NOT NULL, 
+		category VARCHAR(20) NOT NULL,
+		created_at TIMESTAMPTZ DEFAULT NOW(),
+		updated_at TIMESTAMPTZ DEFAULT NOW()
+	);
