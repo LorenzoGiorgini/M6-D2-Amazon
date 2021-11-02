@@ -10,3 +10,18 @@ CREATE TABLE IF NOT EXISTS
 		created_at TIMESTAMPTZ DEFAULT NOW(),
 		updated_at TIMESTAMPTZ DEFAULT NOW()
 	);
+
+
+CREATE TABLE IF NOT EXISTS public.reviews
+(
+    id_review bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1 ),
+    comment character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    rate integer NOT NULL,
+    product_id bigint NOT NULL,
+    CONSTRAINT reviews_pkey PRIMARY KEY (id_review),
+    CONSTRAINT product_id FOREIGN KEY (product_id)
+        REFERENCES public.products (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
+)

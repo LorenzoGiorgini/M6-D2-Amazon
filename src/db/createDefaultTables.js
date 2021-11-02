@@ -11,8 +11,6 @@ const createDefaultTables = async () => {
 
         const tableSQL = buffer.toString()
 
-        console.log(tableSQL)
-
         await pool.query(tableSQL)
     } catch (error) {
         console.log(error);
